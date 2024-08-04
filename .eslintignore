@@ -1,0 +1,7 @@
+node_modules
+out
+build
+.next
+next.config.js
+postcss.config.js
+pnpm.lock.yml
