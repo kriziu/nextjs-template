@@ -1,18 +1,18 @@
 FROM node:20-slim AS base
 
-FROM base AS builder
-
-WORKDIR /app
-
 RUN npm install -g pnpm
 
-COPY package.json pnpm-lock.yaml* ./
-RUN pnpm install
+FROM base AS builder
+WORKDIR /app
+
 COPY . .
+RUN pnpm install --frozen-lockfile
+
 
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
 
+# Add here the environment variables that are needed for the build
 ARG DATABASE_URL
 
 RUN pnpm run build
@@ -45,7 +45,5 @@ USER nextjs
 EXPOSE 3000
 
 ENV PORT=3000
-
-ARG HOSTNAME
 
 CMD ./run.sh
