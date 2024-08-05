@@ -8,7 +8,7 @@ export default async function Home() {
     <main className="flex items-center justify-center h-screen flex-col">
       {users.map((user) => (
         <div key={user.id} className="p-4">
-          {user.name}
+          {user.age}
         </div>
       ))}
       <CreateUserButton />
