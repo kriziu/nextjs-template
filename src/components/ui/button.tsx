@@ -55,7 +55,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
         disabled={props.disabled || loading}
       >
-        {loading && <LoaderCircle className="mr-2 size-5 animate-spin" />}
+        {loading && <LoaderCircle className="mr-2 size-4 animate-spin" />}
         {loading ? text : props.children}
       </Comp>
     );

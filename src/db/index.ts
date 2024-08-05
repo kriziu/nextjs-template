@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { DrizzlePostgreSQLAdapter } from '@lucia-auth/adapter-drizzle';
 import { PostgresJsDatabase, drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 
@@ -20,4 +21,10 @@ if (env.NODE_ENV === 'production') {
   db = (global as any).db;
 }
 
-export { db, pg };
+const authAdapter = new DrizzlePostgreSQLAdapter(
+  db,
+  schema.sessionTable,
+  schema.userTable,
+);
+
+export { db, pg, authAdapter };

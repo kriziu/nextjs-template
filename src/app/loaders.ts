@@ -1,5 +1,5 @@
-import { cache } from 'react';
+// import { cache } from 'react';
 
-import { getUsers } from '@/use-cases/users';
+// import { getUsers } from '@/use-cases/users';
 
-export const getUsersLoader = cache(getUsers);
+// export const getUsersLoader = cache(getUsers);

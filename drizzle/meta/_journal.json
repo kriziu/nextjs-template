@@ -15,6 +15,13 @@
       "when": 1722854497580,
       "tag": "0001_yellow_squadron_sinister",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1722863703400,
+      "tag": "0002_purple_exodus",
+      "breakpoints": true
     }
   ]
 }

@@ -1,17 +1,16 @@
-import CreateUserButton from './_components/create-user-button';
-import { getUsersLoader } from './loaders';
+import { protectPage } from '@/lib/auth';
 
-export default async function Home() {
-  const users = await getUsersLoader();
+import LogoutButton from './_components/logout-button';
+
+export default async function HomePage() {
+  await protectPage();
 
   return (
-    <main className="flex items-center justify-center h-screen flex-col">
-      {users.map((user) => (
-        <div key={user.id} className="p-4">
-          {user.age}
-        </div>
-      ))}
-      <CreateUserButton />
+    <main className="grid place-items-center h-dvh">
+      <div className="space-y-4 flex flex-col">
+        <p>This page is protected</p>
+        <LogoutButton />
+      </div>
     </main>
   );
 }

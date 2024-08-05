@@ -1,12 +1,31 @@
-import { db } from '@/db';
-import { users } from '@/db/schema';
+import { eq } from 'drizzle-orm';
 
-export async function createUser(name: string) {
-  const [user] = await db.insert(users).values({ name }).returning();
+import { db } from '@/db';
+import { userTable } from '@/db/schema';
+
+export async function createUser({
+  id,
+  name,
+  email,
+  passwordHash,
+}: {
+  id: string;
+  name: string;
+  email: string;
+  passwordHash: string;
+}) {
+  const [user] = await db
+    .insert(userTable)
+    .values({ id, name, email, passwordHash })
+    .returning();
 
   return user;
 }
 
-export async function getUsers() {
-  return await db.query.users.findMany();
+export async function getUserByEmail(email: string) {
+  const user = await db.query.userTable.findFirst({
+    where: eq(userTable.email, email),
+  });
+
+  return user;
 }

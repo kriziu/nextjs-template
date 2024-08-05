@@ -17,10 +17,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html lang="en">
       <body
-        className={cn(
-          'min-h-screen bg-background font-sans antialiased',
-          fontSans.variable,
-        )}
+        className={cn('min-h-dvh bg-background font-sans antialiased', fontSans.variable)}
       >
         {children}
       </body>
