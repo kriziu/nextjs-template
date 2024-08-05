@@ -1,6 +1,6 @@
 FROM node:20-slim AS base
 
-RUN npm install -g pnpm
+RUN corepack enable pnpm
 
 FROM base AS builder
 WORKDIR /app
@@ -15,7 +15,7 @@ ENV NODE_ENV=production
 # Add here the environment variables that are needed for the build
 ARG DATABASE_URL
 
-RUN pnpm run build
+RUN pnpm run db:migrate && pnpm run build
 
 FROM base AS runner
 WORKDIR /app
@@ -38,7 +38,6 @@ COPY --from=builder --chown=nextjs:nodejs /app/run.sh ./run.sh
 
 RUN cd drizzle/migrate && pnpm install
 
-WORKDIR /app
 
 USER nextjs
 
@@ -46,4 +45,4 @@ EXPOSE 3000
 
 ENV PORT=3000
 
-CMD ./run.sh
+CMD ["./run.sh"]
