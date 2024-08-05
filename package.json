@@ -1,6 +1,5 @@
 {
-  "name": "beer-tracker",
-  "version": "0.1.0",
+  "name": "nextjs-template",
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
@@ -17,7 +16,7 @@
     "db:generate": "drizzle-kit generate --config=drizzle.config.ts",
     "db:studio": "drizzle-kit studio",
     "db:clear": "tsx ./src/db/clear.ts",
-    "db:reset": "npm run db:clear && npm run db:migrate"
+    "db:reset": "pnpm run db:clear && pnpm run db:migrate"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",

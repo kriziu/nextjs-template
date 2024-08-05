@@ -9,8 +9,8 @@ import { cn } from '@/lib/utils';
 const fontSans = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
-  title: 'Beer Tracker',
-  description: 'Keep track of your beers with friends.',
+  title: 'NextJS Template',
+  description: 'Just a starting template.',
 };
 
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
