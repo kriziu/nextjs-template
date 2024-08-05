@@ -34,6 +34,6 @@ pnpm build
 pnpm start
 ```
 
-I'm planning to add unit tests and E2E tests using Cypress in the future.
+I'm planning to add E2E tests using Cypress in the future.
 
 Feel free to modify this template to your needs!

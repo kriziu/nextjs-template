@@ -13,7 +13,7 @@ export type RegisterUserDto = z.infer<typeof registerUserSchema>;
 export type LoginUserDto = z.infer<typeof loginUserSchema>;
 
 export function userToSafeData(user: User): UserWithSafeData {
-  const { passwordHash: _, ...safeData } = user;
+  const { name, email, id } = user;
 
-  return safeData;
+  return { id, name, email };
 }

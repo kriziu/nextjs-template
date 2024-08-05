@@ -1,7 +1,6 @@
 import { hash, verify } from '@node-rs/argon2';
 import { generateIdFromEntropySize } from 'lucia';
 
-import * as UserDataAccess from '@/data-access/user';
 import {
   User,
   RegisterUserDto,
@@ -13,18 +12,15 @@ import {
 } from '@/entities/user';
 import { passwordHashOptions } from '@/lib/auth.config';
 
+import type { MutateUsersDependencies } from './dependencies';
+
 export const errorMessages = {
   UserAlreadyExist: 'User with this email already exists.',
   InvalidCredentials: 'Invalid credentials.',
 };
 
-export const mutateUsersDependencies = {
-  createUser: UserDataAccess.createUser,
-  getUserByEmail: UserDataAccess.getUserByEmail,
-};
-
 export async function registerUser(
-  ctx: typeof mutateUsersDependencies,
+  ctx: MutateUsersDependencies,
   data: RegisterUserDto,
 ): Promise<UserWithSafeData> {
   const parsedData = registerUserSchema.parse(data);
@@ -48,7 +44,7 @@ export async function registerUser(
 }
 
 export async function loginUser(
-  ctx: typeof mutateUsersDependencies,
+  ctx: MutateUsersDependencies,
   data: LoginUserDto,
 ): Promise<UserWithSafeData> {
   const { email, password } = loginUserSchema.parse(data);
