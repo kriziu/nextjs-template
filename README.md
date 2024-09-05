@@ -1,11 +1,11 @@
 # Next.js template for creating full stack web apps.
 
-It is created using clean architecture (seperated to entities and use-cases)
+It is created using clean architecture
 
 ### Features
 - shadcn/ui
 - Drizzle ORM
-- Lucia Auth
+- Lucia Auth (email code verification)
 - Zod schemas
 - Typed env variables
 - Husky (git hooks)

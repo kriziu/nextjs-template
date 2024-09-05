@@ -14,12 +14,13 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:import/typescript",
+    "plugin:tailwindcss/recommended",
+    "plugin:import/recommended",
     "next/core-web-vitals"
   ],
   "rules": {
+    "tailwindcss/no-custom-classname": "off",
+    "tailwindcss/classnames-order": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-unused-vars": [
       "error",
@@ -56,12 +57,6 @@
           "order": "asc",
           "caseInsensitive": true
         }
-      }
-    ],
-    "import/no-unresolved": [
-      "error",
-      {
-        "ignore": ["^@mantine/.+"]
       }
     ]
   },

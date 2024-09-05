@@ -7,4 +7,4 @@ postcss.config.js
 package.json
 README.md
 tsconfig.json
-pnpm.lock.yml
+pnpm-lock.yaml
