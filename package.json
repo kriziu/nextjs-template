@@ -5,7 +5,7 @@
     "dev": "next dev --turbo",
     "build:next": "next build",
     "build": "pnpm db:migrate && pnpm build:next",
-    "start": "next start",
+    "start": "cp -r .next/static .next/standalone/.next/ && node .next/standalone/server.js",
     "test": "vitest",
     "check": "pnpm type-check && pnpm lint && pnpm format",
     "type-check": "tsc --noEmit",
@@ -86,6 +86,5 @@
       "eslint --fix",
       "prettier --write"
     ]
-  },
-  "packageManager": "pnpm@9.6.0+sha512.38dc6fba8dba35b39340b9700112c2fe1e12f10b17134715a4aa98ccf7bb035e76fd981cf0bb384dfa98f8d6af5481c2bef2f4266a24bfa20c34eb7147ce0b5e"
+  }
 }

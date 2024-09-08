@@ -9,6 +9,7 @@ It is created using clean architecture
 - Zod schemas
 - Typed env variables
 - Husky (git hooks)
+- .cursorrules (Cursor rules created specifically for this project)
 
 ### Getting started
 
@@ -27,7 +28,7 @@ To run project, simply run the development server:
 pnpm dev
 ```
 
-If you want to deploy the project:
+If you want to deploy the project, you can use the Docker (remember to pass the `DATABASE_URL` build argument to make migrations) or run the `build` and `start` scripts:
 ```bash
 pnpm build
 # wait for completion

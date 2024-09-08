@@ -20,5 +20,6 @@ export const env = createEnv({
     EMAIL_SERVER_PASSWORD: process.env.EMAIL_SERVER_PASSWORD,
     EMAIL_FROM: process.env.EMAIL_FROM,
   },
-  skipValidation: process.env.NODE_ENV === 'test',
+  skipValidation:
+    process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'production',
 });
